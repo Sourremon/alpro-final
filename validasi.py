@@ -7,8 +7,6 @@ def loginuser(username, password):
             if a["username"] == username:
                 if a["password"] == password:
                     return a
-            else:
-                return IndexError
             
 def register(username, password):
     new_acc = {"username": str(username),
