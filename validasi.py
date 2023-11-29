@@ -1,17 +1,22 @@
 import json
-file = open("users.json", "r")
-data = json.load(file)
+
 
 def loginuser(username, password):
-        for a in data["akun"]:
-            if a["username"] == username:
-                if a["password"] == password:
-                    return a
-            
+    file = open("users.json", "r")
+    data = json.load(file)
+    for a in data["akun"]:
+        if a["username"] == username:
+           if a["password"] == password:
+            return a
+        file.close()  
+
 def register(username, password):
+    file = open("users.json", "r")
+    data = json.load(file)
     new_acc = {"username": str(username),
-                "password": str(password)}
-    
+                "password": str(password),
+                "saldo": 0,
+                "riwayat":[]}
     with open("users.json", "r") as file:
         data = json.load(file)
 
@@ -21,4 +26,3 @@ def register(username, password):
         json.dump(data, file, indent=3)
     file.close()
           
-file.close()
