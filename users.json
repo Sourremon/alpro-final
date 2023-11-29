@@ -2,35 +2,59 @@
    "akun": [
       {
          "username": "andika",
-         "password": "12345"
+         "password": "12345",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       },
       {
          "username": "syifa",
-         "password": "54321"
+         "password": "54321",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       },
       {
          "username": "we",
-         "password": "we"
+         "password": "we",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       },
       {
          "username": "qw",
-         "password": "qw"
+         "password": "qw",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       },
       {
          "username": "er",
-         "password": "er"
+         "password": "er",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       },
       {
          "username": "raka",
-         "password": "1234"
+         "password": "1234",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       },
       {
          "username": "an",
-         "password": "an"
+         "password": "an",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       },
       {
          "username": "aqiel",
-         "password": "aqil"
+         "password": "aqil",
+         "saldo": "Rp 0,00",
+         "deposit": "Rp 0,00",
+         "penarikan": "Rp 0,00"
       }
    ]
 }
