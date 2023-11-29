@@ -58,7 +58,19 @@ class Window(QWidget):
             data = validasi.register(user, passw)
             self.label_9.setText(f"Selamat datang, {user}")
             self.stackedWidget.setCurrentIndex(3)
-            
+
+    def tabung(self, selected):
+        with open("users.json", "r") as file:
+            data = json.load(file)
+        tabung_result = self.ledit_tabung(selected)
+        update_data = self.update_data(data, tabung_result)
+        with open("users.json", "w") as file:
+            json.dump(update_data, file, indent=2)
+
+    
+    # def ledit_tabung(self, selected):
+    #     if selected
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
