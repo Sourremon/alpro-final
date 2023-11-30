@@ -47,35 +47,6 @@
          "password": "aqil",
          "saldo": 0,
          "riwayat": []
-      },
-      {
-         "username": "f",
-         "password": "f",
-         "saldo": 0,
-         "riwayat": []
-      },
-      {
-         "username": "u",
-         "password": "u",
-         "saldo": 0,
-         "riwayat": [
-            "deposit + Rp 20000, 30-11-2023, 02:08:57",
-            "tarik - Rp 20000, 30-11-2023, 02:08:58",
-            "deposit + Rp 545345, 30-11-2023, 02:16:11",
-            "tarik - Rp 545345, 30-11-2023, 02:16:16"
-         ]
-      },
-      {
-         "username": "bebek",
-         "password": "ayam",
-         "saldo": 0,
-         "riwayat": []
-      },
-      {
-         "username": "a",
-         "password": "b",
-         "saldo": 0,
-         "riwayat": []
       }
    ]
 }
