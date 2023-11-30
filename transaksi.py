@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from PyQt5.QtWidgets import QMessageBox
 
 def tabung(deposit, user):
     file = open("users.json", "r")
@@ -33,7 +34,10 @@ def tarik(deposit, user):
                 with open("users.json", "w") as file:
                     json.dump(data, file, indent=3)
             else:
-                print("minus anjeng")
+                msg = QMessageBox()
+                msg.setText("Tidak bisa minus")
+                msg.setWindowTitle("Peringatan")
+                msg.exec_()
             
             return a["saldo"]
     file.close()

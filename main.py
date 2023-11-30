@@ -62,12 +62,12 @@ class Window(QWidget):
                     self.stackedWidget.setCurrentIndex(0)
                 else:
                     msg = QMessageBox()
-                    msg.setText("Minimal diisi lah")
+                    msg.setText("Tidak boleh kosong")
                     msg.setWindowTitle("Peringatan")
                     msg.exec_()
             else:
                 msg = QMessageBox()
-                msg.setText("Minimal diisi lah")
+                msg.setText("Tidak boleh kosong")
                 msg.setWindowTitle("Peringatan")
                 msg.exec_()
 
@@ -77,18 +77,24 @@ class Window(QWidget):
             data = transaksi.tabung(deposit, user)
             self.saldo_lbl.setText(str(data) + ",00")
         except:
-            print("mau berapa cok")
+            msg = QMessageBox()
+            msg.setText("Masukan nominal")
+            msg.setWindowTitle("Peringatan")
+            msg.exec_()
     def tarik(self, user):
         try:
             deposit = self.ledit_tabung.text()
             data = transaksi.tarik(deposit, user)
             self.saldo_lbl.setText(str(data) + ",00")
         except:
-            print("mau berapa cok")
+            msg = QMessageBox()
+            msg.setText("Masukan nominal")
+            msg.setWindowTitle("Peringatan")
+            msg.exec_()
     def riwayat(self, user):
         msg = QMessageBox()
         msg.setText(transaksi.riwayat(user))
-        msg.setWindowTitle("Riwayat mu leee")
+        msg.setWindowTitle("Riwayat transaksi")
         msg.exec()
         
 if __name__ == "__main__":
