@@ -15,6 +15,7 @@ class Window(QWidget):
         loadUi("main.ui", self)
         self.setGeometry(20,50, 388, 409)
         self.setFixedSize(388, 409)
+        self.setWindowTitle("MoMa App")
         self.stackedWidget.setCurrentIndex(0)
         self.login_btn.clicked.connect(lambda: self.tujuan("main_login"))
         self.register_btn.clicked.connect(lambda: self.tujuan("main_register"))

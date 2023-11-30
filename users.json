@@ -70,6 +70,12 @@
          "password": "ayam",
          "saldo": 0,
          "riwayat": []
+      },
+      {
+         "username": "a",
+         "password": "b",
+         "saldo": 0,
+         "riwayat": []
       }
    ]
 }
