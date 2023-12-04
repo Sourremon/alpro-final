@@ -33,7 +33,7 @@ def tarik(deposit, user):
                 with open("users.json", "w") as file:
                     json.dump(data, file, indent=3)
             else:
-                print("minus anjeng")
+                print("minus")
             
             return a["saldo"]
     file.close()
@@ -41,16 +41,16 @@ def riwayat(user):
     file = open("users.json", "r")
     data = json.load(file)
     for a in data["akun"]:
-        if a["username"] == user["username"]:
+        if a["username"] == user:
             hist = ""
             for b in a["riwayat"]:
-                hist += f"\n{b}"
+                hist += f"{b}\n"
             return hist
 def hapusriwayat(user):
     file = open("users.json", "r")
     data = json.load(file)
     for a in data["akun"]:
-        if a["username"] == user["username"]:
+        if a["username"] == user:
             a["riwayat"] = []
     with open("users.json", "w") as file:
         json.dump(data, file, indent=3)

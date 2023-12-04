@@ -8,11 +8,12 @@ from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import Qt
 import validasi
 import transaksi
+import json
 
 class Window(QWidget):
     def __init__(self):
         super(Window, self).__init__()
-        loadUi("main.ui", self)
+        loadUi("cicakterbang.ui", self)
         self.stackedWidget.setCurrentIndex(0)
         self.login_btn.clicked.connect(lambda: self.tujuan("main_login"))
         self.register_btn.clicked.connect(lambda: self.tujuan("main_register"))
@@ -21,7 +22,7 @@ class Window(QWidget):
         self.kembali.clicked.connect(lambda: self.tujuan("balek"))
         self.kembali_2.clicked.connect(lambda: self.tujuan("balek"))
         self.logout_btn.clicked.connect(lambda: self.tujuan("balek"))
-        
+     
         
 
     def tujuan(self, role):
@@ -36,6 +37,9 @@ class Window(QWidget):
         if role == "login":
             user = self.ledit_user1.text()
             passw = self.ledit_pass1.text()
+            self.transaksipage_btn.clicked.connect(lambda: self.pages("transaksi", user))
+            self.riwayatpage_btn.clicked.connect(lambda: self.pages("riwayat", user)) 
+            self.hapusriwayat_btn.clicked.connect(lambda: self.hapus(user))  
             try:
                 data = validasi.loginuser(user, passw)
                 if data:
@@ -44,15 +48,13 @@ class Window(QWidget):
                     self.tabung_btn.clicked.connect(lambda: self.tabung(data))
                     self.tarik_btn.clicked.connect(lambda: self.tarik(data))
                     self.saldo_lbl.setText(str(data["saldo"]))
-                    self.riwayat_btn.clicked.connect(lambda: self.riwayat(data))
-                    self.hapusriwayat_btn.clicked.connect(lambda: transaksi.hapusriwayat(data))
+                    # self.riwayat_btn.clicked.connect(lambda: self.riwayat(data))
+                    
+                    
+        
             except:
                 print(":P")
-        if role == "register":
-            user = self.ledit_user.text()
-            passw = self.ledit_pass.text()
-            data = validasi.register(user, passw)
-            self.stackedWidget.setCurrentIndex(0)
+            
 
     def tabung(self, user):
         deposit = self.ledit_tabung.text()
@@ -60,7 +62,7 @@ class Window(QWidget):
             data = transaksi.tabung(deposit, user)
             self.saldo_lbl.setText(str(data))
         except:
-            print("mau berapa cok")
+            print("mau berapa")
     def tarik(self, user):
         try:
             deposit = self.ledit_tabung.text()
@@ -68,11 +70,20 @@ class Window(QWidget):
             self.saldo_lbl.setText(str(data))
         except:
             print("mau berapa cok")
-    def riwayat(self, user):
-        msg = QMessageBox()
-        msg.setText(transaksi.riwayat(user))
-        msg.setWindowTitle("Riwayat mu leee")
-        msg.exec()
+
+    def pages(self, role, user):
+        if role == "riwayat":
+            self.stackedWidget_2.setCurrentIndex(1)
+            rwyt = transaksi.riwayat(user)
+            self.label_13.setText(rwyt)
+        elif role == "transaksi":
+            self.stackedWidget_2.setCurrentIndex(0)
+    
+    def hapus(self, user):
+        transaksi.hapusriwayat(user)
+        rwyt = transaksi.riwayat(user)
+        self.label_13.setText(rwyt)
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
